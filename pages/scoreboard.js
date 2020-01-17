@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import Player from '../components/Player/Player';
+import '../scss/scoreboard.scss';
 
-const Scoreboard = () => {
+const Scoreboard = ({ isServer }) => {
   const players = useSelector(state => state.players);
+  console.log(isServer);
   return (
-    <div className='scoreboard'>
-      <Container fluid>
+    <Container>
+      <div className='scoreboard'>
         <div className='players'>
           {players.map((player, index) => (
             <Player
@@ -22,19 +24,19 @@ const Scoreboard = () => {
             />
           ))}
         </div>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 
 Scoreboard.propTypes = {
   title: PropTypes.string,
-  players: PropTypes.array
+  players: PropTypes.array.isRequired
 };
 
 Scoreboard.getInitialProps = props => {
-  const { store, isServer } = props.ctx;
+  const { isServer } = props.ctx;
   return { isServer };
 };
 
-export default connect()(Scoreboard);
+export default Scoreboard;
