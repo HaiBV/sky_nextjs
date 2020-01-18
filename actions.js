@@ -3,50 +3,63 @@ export const actionTypes = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
   RESET: 'RESET',
-  LOAD_DATA: 'LOAD_DATA',
-  LOAD_DATA_SUCCESS: 'LOAD_DATA_SUCCESS',
   START_CLOCK: 'START_CLOCK',
   TICK_CLOCK: 'TICK_CLOCK',
-}
+  LOAD_DATA: 'LOAD_DATA',
+  LOAD_DATA_SUCCESS: 'LOAD_DATA_SUCCESS',
+  LOAD_POSTS: 'LOAD_POSTS',
+  LOAD_POSTS_SUCCESS: 'LOAD_POSTS_SUCCESS'
+};
 
 export function failure(error) {
   return {
     type: actionTypes.FAILURE,
-    error,
-  }
+    error
+  };
 }
 
 export function increment() {
-  return { type: actionTypes.INCREMENT }
+  return { type: actionTypes.INCREMENT };
 }
 
 export function decrement() {
-  return { type: actionTypes.DECREMENT }
+  return { type: actionTypes.DECREMENT };
 }
 
 export function reset() {
-  return { type: actionTypes.RESET }
+  return { type: actionTypes.RESET };
 }
 
 export function loadData() {
-  return { type: actionTypes.LOAD_DATA }
+  return { type: actionTypes.LOAD_DATA };
 }
 
 export function loadDataSuccess(data) {
   return {
     type: actionTypes.LOAD_DATA_SUCCESS,
-    data,
-  }
+    data
+  };
+}
+
+export function loadPosts() {
+  return { type: actionTypes.LOAD_POSTS };
+}
+
+export function loadPostsSuccess(posts) {
+  return {
+    type: actionTypes.LOAD_POSTS_SUCCESS,
+    posts
+  };
 }
 
 export function startClock() {
-  return { type: actionTypes.START_CLOCK }
+  return { type: actionTypes.START_CLOCK };
 }
 
 export function tickClock(isServer) {
   return {
     type: actionTypes.TICK_CLOCK,
     light: !isServer,
-    ts: Date.now(),
-  }
+    ts: Date.now()
+  };
 }

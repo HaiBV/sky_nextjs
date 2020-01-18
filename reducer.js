@@ -1,11 +1,6 @@
 import { actionTypes } from './actions';
 
 export const exampleInitialState = {
-  count: 0,
-  error: false,
-  lastUpdate: 0,
-  light: false,
-  placeholderData: null,
   players: [
     {
       id: 1,
@@ -43,7 +38,9 @@ export const exampleInitialState = {
       updated: '1/14/2018'
     }
   ],
-  selectedPlayerIndex: -1
+  selectedPlayerIndex: -1,
+  placeholderData: null,
+  posts: null
 };
 
 function reducer(state = exampleInitialState, action) {
@@ -76,6 +73,12 @@ function reducer(state = exampleInitialState, action) {
       return {
         ...state,
         ...{ placeholderData: action.data }
+      };
+
+    case actionTypes.LOAD_POSTS_SUCCESS:
+      return {
+        ...state,
+        ...{ posts: action.posts }
       };
 
     case actionTypes.TICK_CLOCK:

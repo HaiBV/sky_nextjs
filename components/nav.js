@@ -5,7 +5,8 @@ const links = [
   // { href: 'https://zeit.co/now', label: 'ZEIT' },
   // { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
   { href: '/about', label: 'About' },
-  { href: '/scoreboard', label: 'Scoreboard' }
+  { href: '/scoreboard', label: 'Scoreboard' },
+  { href: '/posts', label: 'Posts' }
 ].map(link => ({
   ...link,
   key: `nav-link-${link.href}-${link.label}`
